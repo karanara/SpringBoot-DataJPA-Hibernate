@@ -18,8 +18,21 @@ public class SpringDataJpaApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner->{
-			createStudent(studentDAO);
+			//createStudent(studentDAO);
+			createMultipleStudents(studentDAO);
 		};
+	}
+	private void createMultipleStudents(StudentDAO studentDAO) {
+		Student newStudent1 = new Student("Jishna","Karanam","joshna@gmail.com");
+		Student newStudent2 = new Student("josh","Karanam","jo123@gmail.com");
+		Student newStudent3 = new Student("bujji","Karanam","baby123@gmail.com");
+		studentDAO.save(newStudent1);
+		studentDAO.save(newStudent2);
+		studentDAO.save(newStudent3);
+		System.out.println("Saved Student.Generated id: "+newStudent1.getId());
+		System.out.println("Saved Student.Generated id: "+newStudent2.getId());
+		System.out.println("Saved Student.Generated id: "+newStudent3.getId());
+
 	}
 	private void createStudent(StudentDAO studentDAO) {
 		// TODO Auto-generated method stub
