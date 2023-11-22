@@ -19,8 +19,27 @@ public class SpringDataJpaApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner->{
 			//createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			//createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+	
+	private void readStudent(StudentDAO studentDAO) {
+		// TODO Auto-generated method stub
+		//create student object
+		Student newStudent6 = new Student("langsum","library","ledu@gmail.com");
+
+		//save the student
+		studentDAO.save(newStudent6);
+		//display id of the student
+		int id = newStudent6.getId();
+		System.out.println("Generated ID"+ id);
+		
+		//retreive student based on id:primary key
+		 Student student = studentDAO.findById(id);
+		// display student 
+		 System.out.println("Student we got:" + student);
+		
 	}
 	private void createMultipleStudents(StudentDAO studentDAO) {
 		Student newStudent1 = new Student("Jishna","Karanam","joshna@gmail.com");

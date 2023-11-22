@@ -10,6 +10,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="student")
 public class Student {
+	public Student() {
+		
+	}
 	public Student(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
