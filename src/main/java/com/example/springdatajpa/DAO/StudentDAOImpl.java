@@ -50,4 +50,10 @@ public class StudentDAOImpl implements StudentDAO {
 		typedQuery.setParameter("theData",lastName);
 		return typedQuery.getResultList();
 	}
+	@Override
+	@Transactional
+	public void update(Student theStudent) {
+		// TODO Auto-generated method stub
+		entityManager.merge(theStudent);
+	}
 }

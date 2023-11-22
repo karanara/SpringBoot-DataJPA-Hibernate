@@ -24,10 +24,22 @@ public class SpringDataJpaApplication {
 			//createMultipleStudents(studentDAO);
 			//readStudent(studentDAO);
 			//ReadAllStudents(studentDAO);
-			queryforStudents(studentDAO);
+			//queryforStudents(studentDAO);
+			updateStudent(studentDAO);
 		};
 	}
 	
+	private void updateStudent(StudentDAO studentDAO) {
+		// TODO Auto-generated method stub
+		//retrive the student by id :primary key
+         Student student = studentDAO.findById(4);
+         student.setlastName("babilu");
+		//chnage the last name
+		//update the student
+         studentDAO.update(student);
+		//display the update student
+         System.out.println(student);
+	}
 	private void queryforStudents(StudentDAO studentDAO) {
 		// TODO Auto-generated method stub
 		List<Student> students= studentDAO.findByLastName("Karanam");
