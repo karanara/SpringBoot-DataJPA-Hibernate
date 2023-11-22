@@ -1,5 +1,7 @@
 package com.example.springdatajpa;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,10 +22,28 @@ public class SpringDataJpaApplication {
 		return runner->{
 			//createStudent(studentDAO);
 			//createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
+			//ReadAllStudents(studentDAO);
+			queryforStudents(studentDAO);
 		};
 	}
 	
+	private void queryforStudents(StudentDAO studentDAO) {
+		// TODO Auto-generated method stub
+		List<Student> students= studentDAO.findByLastName("Karanam");
+		for(Student s : students) {
+			System.out.println(s);
+		}
+	}
+	private void ReadAllStudents(StudentDAO studentDAO) {
+		// TODO Auto-generated method stub
+		List<Student> students= studentDAO.findAll();
+		System.out.println(" ::" );
+		for (Student s : students) {
+			System.out.println(s);
+		}
+		
+	}
 	private void readStudent(StudentDAO studentDAO) {
 		// TODO Auto-generated method stub
 		//create student object
