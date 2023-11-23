@@ -21,13 +21,13 @@ public class SpringDataJpaApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner->{
 			//createStudent(studentDAO);
-			//createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 			//readStudent(studentDAO);
 			//ReadAllStudents(studentDAO);
 			//queryforStudents(studentDAO);
 			//updateStudent(studentDAO);
 			//deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+			//deleteAllStudents(studentDAO);
 		};
 	}
 	
