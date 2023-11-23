@@ -56,4 +56,20 @@ public class StudentDAOImpl implements StudentDAO {
 		// TODO Auto-generated method stub
 		entityManager.merge(theStudent);
 	}
+	@Override
+	@Transactional
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		Student student = entityManager.find(Student.class, id);
+		entityManager.remove(student);
+		
+	}
+	@Override
+	@Transactional
+	public int deleteAll() {
+		// TODO Auto-generated method stub
+		int rowsDeleted= entityManager.createQuery("DELETE FROM Student").executeUpdate();
+		return rowsDeleted;
+	}
+	
 }

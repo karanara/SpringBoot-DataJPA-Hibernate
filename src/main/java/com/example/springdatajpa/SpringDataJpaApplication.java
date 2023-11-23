@@ -25,10 +25,23 @@ public class SpringDataJpaApplication {
 			//readStudent(studentDAO);
 			//ReadAllStudents(studentDAO);
 			//queryforStudents(studentDAO);
-			updateStudent(studentDAO);
+			//updateStudent(studentDAO);
+			//deleteStudent(studentDAO);
+			deleteAllStudents(studentDAO);
 		};
 	}
 	
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		// TODO Auto-generated method stub
+		System.out.println("delete all students :  "+ studentDAO.deleteAll());
+		
+	}
+	private void deleteStudent(StudentDAO studentDAO) {
+		// TODO Auto-generated method stub
+		studentDAO.delete(2);
+		
+		
+	}
 	private void updateStudent(StudentDAO studentDAO) {
 		// TODO Auto-generated method stub
 		//retrive the student by id :primary key
